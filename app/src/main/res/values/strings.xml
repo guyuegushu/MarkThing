@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MarkThing</string>
+    <string name="title">打卡记录表</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="btn_month">整月记录</string>
+    <string name="btn_commit">确认</string>
+    <string name="am">上午</string>
+    <string name="pm">下午</string>
+</resources>
