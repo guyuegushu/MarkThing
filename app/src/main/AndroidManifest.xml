@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".WholeMonthMark">
+        <activity android:name=".FragmentDisActivity">
 
         </activity>
     </application>

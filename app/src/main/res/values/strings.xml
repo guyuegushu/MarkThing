@@ -4,7 +4,10 @@
     <string name="yes">是</string>
     <string name="no">否</string>
     <string name="btn_month">整月记录</string>
+    <string name="btn_mark">今日打卡</string>
     <string name="btn_commit">确认</string>
     <string name="am">上午</string>
     <string name="pm">下午</string>
+    <string name="never_mark">还没有记录,&#8230;</string>
+    <string name="main_text">总有时光你可以掌握，即便年华似水&#8230;</string>
 </resources>

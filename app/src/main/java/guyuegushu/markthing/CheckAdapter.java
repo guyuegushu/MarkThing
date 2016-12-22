@@ -49,14 +49,14 @@ public class CheckAdapter extends BaseAdapter {
         Holder holder = null;
         if (view == null) {
             holder = new Holder();
-            view = mLayoutInflater.inflate(R.layout.check_list_item, null);
-            holder.day = (TextView) view.findViewById(R.id.day);
+            view = mLayoutInflater.inflate(R.layout.list_item_fragment_list, null);
+            holder.day = (TextView) view.findViewById(R.id.day_list);
 
-            holder.yes_am = (RadioButton) view.findViewById(R.id.checkbox_yes_am);
-            holder.no_am = (RadioButton) view.findViewById(R.id.checkbox_no_am);
+            holder.yes_am = (RadioButton) view.findViewById(R.id.checkbox_yes_am_list);
+            holder.no_am = (RadioButton) view.findViewById(R.id.checkbox_no_am_list);
 
-            holder.yes_pm = (RadioButton) view.findViewById(R.id.checkbox_yes_pm);
-            holder.no_pm = (RadioButton) view.findViewById(R.id.checkbox_no_pm);
+            holder.yes_pm = (RadioButton) view.findViewById(R.id.checkbox_yes_pm_list);
+            holder.no_pm = (RadioButton) view.findViewById(R.id.checkbox_no_pm_list);
 
             view.setTag(holder);
         } else {

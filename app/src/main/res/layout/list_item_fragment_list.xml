@@ -5,7 +5,8 @@
     android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/day"
+        android:id="@+id/day_list"
+        android:layout_marginTop="5dp"
         android:layout_width="50dp"
         android:layout_height="25dp"
         android:layout_marginStart="5dp"
@@ -14,15 +15,16 @@
         android:textStyle="bold" />
 
     <RadioGroup
-        android:id="@+id/check_group_am"
+        android:id="@+id/check_group_am_list"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:layout_gravity="center"
-        android:layout_toEndOf="@id/day"
+        android:layout_toEndOf="@id/day_list"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/whole_AorP_am"
+            android:id="@+id/check_am_list"
             android:layout_width="45dp"
             android:layout_height="20dp"
             android:text="@string/am"
@@ -30,18 +32,26 @@
             android:textStyle="bold|italic" />
 
         <RadioButton
-            android:id="@+id/checkbox_yes_am"
+            android:id="@+id/checkbox_yes_am_list"
             android:layout_width="0dp"
             android:layout_height="20dp"
             android:layout_weight="1"
             android:text="@string/yes" />
 
         <RadioButton
-            android:id="@+id/checkbox_no_am"
+            android:id="@+id/checkbox_no_am_list"
             android:layout_width="0dp"
             android:layout_height="20dp"
             android:layout_weight="1"
             android:text="@string/no" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/never_mark_am_list"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:textStyle="bold"
+            android:text="@string/never_mark"/>
     </RadioGroup>
 
     <RadioGroup
@@ -49,12 +59,12 @@
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:layout_gravity="center"
-        android:layout_below="@id/check_group_am"
-        android:layout_alignStart="@id/check_group_am"
+        android:layout_below="@id/check_group_am_list"
+        android:layout_alignStart="@id/check_group_am_list"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/whole_AorP_pm"
+            android:id="@+id/check_pm_list"
             android:layout_width="45dp"
             android:layout_height="20dp"
             android:text="@string/pm"
@@ -62,18 +72,46 @@
             android:textStyle="bold|italic" />
 
         <RadioButton
-            android:id="@+id/checkbox_yes_pm"
+            android:id="@+id/checkbox_yes_pm_list"
             android:layout_width="0dp"
             android:layout_height="20dp"
             android:layout_weight="1"
             android:text="@string/yes" />
 
         <RadioButton
-            android:id="@+id/checkbox_no_pm"
+            android:id="@+id/checkbox_no_pm_list"
             android:layout_width="0dp"
             android:layout_height="20dp"
             android:layout_weight="1"
             android:text="@string/no" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/never_mark_pm_list"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:textStyle="bold"
+            android:text="@string/never_mark"/>
     </RadioGroup>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_marginTop="7dp"
+        android:layout_toEndOf="@id/day_list"
+        android:id="@+id/never_mark_list"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/never_mark_text_list"
+            android:layout_marginStart="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:text="@string/never_mark"/>
+        </LinearLayout>
 
 </RelativeLayout>

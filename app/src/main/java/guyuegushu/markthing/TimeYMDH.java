@@ -39,7 +39,6 @@ public class TimeYMDH {
         }
     }
 
-
     public TimeYMDH() {
         Calendar c = Calendar.getInstance();
         year = c.get(Calendar.YEAR);

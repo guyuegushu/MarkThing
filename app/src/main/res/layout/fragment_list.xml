@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -9,7 +8,7 @@
     android:paddingTop="@dimen/activity_vertical_margin">
 
     <LinearLayout
-        android:id="@+id/title_whole"
+        android:id="@+id/title_month"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:orientation="horizontal">
@@ -23,7 +22,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/month_whole"
+            android:id="@+id/time_month"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -35,12 +34,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/title_whole"
+        android:layout_below="@id/title_month"
         android:layout_marginTop="15dp"
         android:orientation="vertical">
 
         <ListView
-            android:id="@+id/check_list_whole"
+            android:id="@+id/list_month"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
