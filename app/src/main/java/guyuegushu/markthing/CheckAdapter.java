@@ -52,6 +52,9 @@ public class CheckAdapter extends BaseAdapter {
             view = mLayoutInflater.inflate(R.layout.list_item_fragment_list, null);
             holder.day = (TextView) view.findViewById(R.id.day_list);
 
+            holder.never_mark_pm_list = (TextView) view.findViewById(R.id.never_mark_pm_list);
+            holder.never_mark_am_list = (TextView) view.findViewById(R.id.never_mark_am_list);
+
             holder.yes_am = (RadioButton) view.findViewById(R.id.checkbox_yes_am_list);
             holder.no_am = (RadioButton) view.findViewById(R.id.checkbox_no_am_list);
 
@@ -65,22 +68,12 @@ public class CheckAdapter extends BaseAdapter {
 
         holder.day.setText(mdata.get(i).getDay());
 
-        if (mdata.get(i).isAm_checked()) {
-            if (mdata.get(i).isAm_checkBox()){
-                holder.yes_am.setChecked(true);
-                holder.no_am.setEnabled(false);
-            } else {
-                holder.no_am.setChecked(true);
-                holder.yes_am.setEnabled(false);
-            }
-        } else {
-            holder.yes_am.setChecked(false);
-            holder.yes_am.setEnabled(false);
-            holder.no_am.setChecked(false);
-            holder.no_am.setEnabled(false);
-        }
-
         if (mdata.get(i).isPm_checked()) {
+
+            holder.yes_pm.setVisibility(View.VISIBLE);
+            holder.no_pm.setVisibility(View.VISIBLE);
+            holder.never_mark_pm_list.setVisibility(View.GONE);
+
             if (mdata.get(i).isPm_checkBox()){
                 holder.yes_pm.setChecked(true);
                 holder.no_pm.setEnabled(false);
@@ -88,18 +81,30 @@ public class CheckAdapter extends BaseAdapter {
                 holder.no_pm.setChecked(true);
                 holder.yes_pm.setEnabled(false);
             }
-        } else {
-            holder.yes_pm.setChecked(false);
-            holder.yes_pm.setEnabled(false);
-            holder.no_pm.setChecked(false);
-            holder.no_pm.setEnabled(false);
         }
 
+        if (mdata.get(i).isAm_checked()) {
+
+            holder.yes_am.setVisibility(View.VISIBLE);
+            holder.no_am.setVisibility(View.VISIBLE);
+            holder.never_mark_am_list.setVisibility(View.GONE);
+
+            if (mdata.get(i).isAm_checkBox()){
+                holder.yes_am.setChecked(true);
+                holder.no_am.setEnabled(false);
+            } else {
+                holder.no_am.setChecked(true);
+                holder.yes_am.setEnabled(false);
+            }
+        }
         return view;
     }
 
     private class Holder {
         private TextView day;
+
+        private TextView never_mark_pm_list;
+        private TextView never_mark_am_list;
 
         private RadioButton yes_am;
         private RadioButton no_am;

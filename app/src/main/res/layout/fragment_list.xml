@@ -26,7 +26,6 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:hint="2012.10.11"
             android:textSize="12sp" />
 
     </LinearLayout>

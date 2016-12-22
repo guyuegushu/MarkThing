@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
@@ -11,6 +12,14 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        singleItem();
+    }
+
+    private void singleItem() {
+
+        TextView month = (TextView) findViewById(R.id.main_time);
+        TimeYMDH timeYMDH = new TimeYMDH();
+        month.setText(timeYMDH.getYMD());
     }
 //    btn_mark_today  record_month
 
@@ -28,5 +37,4 @@ public class MainActivity extends Activity {
         startActivity(intent);
 
     }
-
 }

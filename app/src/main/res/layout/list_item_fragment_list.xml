@@ -29,9 +29,10 @@
             android:layout_height="20dp"
             android:text="@string/am"
             android:textSize="18sp"
-            android:textStyle="bold|italic" />
+            android:textStyle="bold" />
 
         <RadioButton
+            android:visibility="gone"
             android:id="@+id/checkbox_yes_am_list"
             android:layout_width="0dp"
             android:layout_height="20dp"
@@ -39,6 +40,7 @@
             android:text="@string/yes" />
 
         <RadioButton
+            android:visibility="gone"
             android:id="@+id/checkbox_no_am_list"
             android:layout_width="0dp"
             android:layout_height="20dp"
@@ -46,7 +48,6 @@
             android:text="@string/no" />
 
         <TextView
-            android:visibility="gone"
             android:id="@+id/never_mark_am_list"
             android:layout_width="100dp"
             android:layout_height="20dp"
@@ -69,9 +70,10 @@
             android:layout_height="20dp"
             android:text="@string/pm"
             android:textSize="18sp"
-            android:textStyle="bold|italic" />
+            android:textStyle="bold" />
 
         <RadioButton
+            android:visibility="gone"
             android:id="@+id/checkbox_yes_pm_list"
             android:layout_width="0dp"
             android:layout_height="20dp"
@@ -79,6 +81,7 @@
             android:text="@string/yes" />
 
         <RadioButton
+            android:visibility="gone"
             android:id="@+id/checkbox_no_pm_list"
             android:layout_width="0dp"
             android:layout_height="20dp"
@@ -86,7 +89,6 @@
             android:text="@string/no" />
 
         <TextView
-            android:visibility="gone"
             android:id="@+id/never_mark_pm_list"
             android:layout_width="100dp"
             android:layout_height="20dp"
@@ -113,5 +115,7 @@
             android:textSize="25sp"
             android:text="@string/never_mark"/>
         </LinearLayout>
+
+
 
 </RelativeLayout>
