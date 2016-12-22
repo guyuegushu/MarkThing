@@ -31,7 +31,6 @@
             android:textSize="15sp" />
 
         <RadioButton
-            android:visibility="gone"
             android:id="@+id/checkbox_yes_am_list"
             android:layout_width="0dp"
             android:layout_height="20dp"
@@ -39,7 +38,6 @@
             android:text="@string/yes" />
 
         <RadioButton
-            android:visibility="gone"
             android:id="@+id/checkbox_no_am_list"
             android:layout_width="0dp"
             android:layout_height="20dp"
@@ -48,6 +46,7 @@
 
         <TextView
             android:id="@+id/never_mark_am_list"
+            android:visibility="gone"
             android:layout_marginStart="20dp"
             android:layout_width="100dp"
             android:layout_height="20dp"
@@ -55,7 +54,7 @@
     </RadioGroup>
 
     <RadioGroup
-        android:id="@+id/check_group_pm"
+        android:id="@+id/check_group_pm_list"
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:layout_gravity="center"
@@ -71,7 +70,6 @@
             android:textSize="15sp" />
 
         <RadioButton
-            android:visibility="gone"
             android:id="@+id/checkbox_yes_pm_list"
             android:layout_width="0dp"
             android:layout_height="20dp"
@@ -79,7 +77,6 @@
             android:text="@string/yes" />
 
         <RadioButton
-            android:visibility="gone"
             android:id="@+id/checkbox_no_pm_list"
             android:layout_width="0dp"
             android:layout_height="20dp"
@@ -88,6 +85,7 @@
 
         <TextView
             android:id="@+id/never_mark_pm_list"
+            android:visibility="gone"
             android:layout_marginStart="20dp"
             android:layout_width="100dp"
             android:layout_height="20dp"
@@ -95,9 +93,9 @@
     </RadioGroup>
 
     <LinearLayout
-        android:visibility="gone"
-        android:layout_marginTop="7dp"
         android:layout_toEndOf="@id/day_list"
+        android:layout_marginTop="7dp"
+        android:visibility="gone"
         android:id="@+id/never_mark_list"
         android:layout_width="wrap_content"
         android:layout_height="40dp"

@@ -5,7 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.util.List;
@@ -55,6 +57,10 @@ public class CheckAdapter extends BaseAdapter {
             holder.never_mark_pm_list = (TextView) view.findViewById(R.id.never_mark_pm_list);
             holder.never_mark_am_list = (TextView) view.findViewById(R.id.never_mark_am_list);
 
+            holder.check_group_am_list = (RadioGroup) view.findViewById(R.id.check_group_am_list);
+            holder.check_group_pm_list = (RadioGroup) view.findViewById(R.id.check_group_pm_list);
+            holder.never_mark_list = (LinearLayout) view.findViewById(R.id.never_mark_list);
+
             holder.yes_am = (RadioButton) view.findViewById(R.id.checkbox_yes_am_list);
             holder.no_am = (RadioButton) view.findViewById(R.id.checkbox_no_am_list);
 
@@ -67,41 +73,73 @@ public class CheckAdapter extends BaseAdapter {
         }
 
         holder.day.setText(mdata.get(i).getDay());
+        boolean am = mdata.get(i).isAm_checked();
+        boolean pm = mdata.get(i).isPm_checked();
 
-        if (mdata.get(i).isPm_checked()) {
+        if (am || pm) {
 
-            holder.yes_pm.setVisibility(View.VISIBLE);
-            holder.no_pm.setVisibility(View.VISIBLE);
-            holder.never_mark_pm_list.setVisibility(View.GONE);
+            if (am && pm){
 
-            if (mdata.get(i).isPm_checkBox()){
-                holder.yes_pm.setChecked(true);
-                holder.no_pm.setEnabled(false);
+                if (mdata.get(i).isAm_checkBox()) {
+                    holder.yes_am.setChecked(true);
+                    holder.no_am.setEnabled(false);
+                } else {
+                    holder.no_am.setChecked(true);
+                    holder.yes_am.setEnabled(false);
+                }
+
+                if (mdata.get(i).isPm_checkBox()) {
+                    holder.yes_pm.setChecked(true);
+                    holder.no_pm.setEnabled(false);
+                } else {
+                    holder.no_pm.setChecked(true);
+                    holder.yes_pm.setEnabled(false);
+                }
+
+            } else if (am) {
+
+                if (mdata.get(i).isAm_checkBox()) {
+                    holder.yes_am.setChecked(true);
+                    holder.no_am.setEnabled(false);
+                } else {
+                    holder.no_am.setChecked(true);
+                    holder.yes_am.setEnabled(false);
+                }
+
+                holder.yes_pm.setVisibility(View.GONE);
+                holder.no_pm.setVisibility(View.GONE);
+                holder.never_mark_pm_list.setVisibility(View.VISIBLE);
+
             } else {
-                holder.no_pm.setChecked(true);
-                holder.yes_pm.setEnabled(false);
+
+                if (mdata.get(i).isPm_checkBox()) {
+                    holder.yes_pm.setChecked(true);
+                    holder.no_pm.setEnabled(false);
+                } else {
+                    holder.no_pm.setChecked(true);
+                    holder.yes_pm.setEnabled(false);
+                }
+
+                holder.yes_am.setVisibility(View.GONE);
+                holder.no_am.setVisibility(View.GONE);
+                holder.never_mark_am_list.setVisibility(View.VISIBLE);
             }
-        }
+        } else {
 
-        if (mdata.get(i).isAm_checked()) {
+            holder.check_group_am_list.setVisibility(View.GONE);
+            holder.check_group_pm_list.setVisibility(View.GONE);
+            holder.never_mark_list.setVisibility(View.VISIBLE);
 
-            holder.yes_am.setVisibility(View.VISIBLE);
-            holder.no_am.setVisibility(View.VISIBLE);
-            holder.never_mark_am_list.setVisibility(View.GONE);
-
-            if (mdata.get(i).isAm_checkBox()){
-                holder.yes_am.setChecked(true);
-                holder.no_am.setEnabled(false);
-            } else {
-                holder.no_am.setChecked(true);
-                holder.yes_am.setEnabled(false);
-            }
         }
         return view;
     }
 
     private class Holder {
         private TextView day;
+
+        private RadioGroup check_group_am_list;
+        private RadioGroup check_group_pm_list;
+        private LinearLayout never_mark_list;
 
         private TextView never_mark_pm_list;
         private TextView never_mark_am_list;
