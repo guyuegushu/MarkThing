@@ -28,8 +28,7 @@
             android:layout_width="45dp"
             android:layout_height="20dp"
             android:text="@string/am"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="15sp" />
 
         <RadioButton
             android:visibility="gone"
@@ -49,9 +48,9 @@
 
         <TextView
             android:id="@+id/never_mark_am_list"
+            android:layout_marginStart="20dp"
             android:layout_width="100dp"
             android:layout_height="20dp"
-            android:textStyle="bold"
             android:text="@string/never_mark"/>
     </RadioGroup>
 
@@ -69,8 +68,7 @@
             android:layout_width="45dp"
             android:layout_height="20dp"
             android:text="@string/pm"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="15sp" />
 
         <RadioButton
             android:visibility="gone"
@@ -90,9 +88,9 @@
 
         <TextView
             android:id="@+id/never_mark_pm_list"
+            android:layout_marginStart="20dp"
             android:layout_width="100dp"
             android:layout_height="20dp"
-            android:textStyle="bold"
             android:text="@string/never_mark"/>
     </RadioGroup>
 
@@ -108,10 +106,9 @@
 
         <TextView
             android:id="@+id/never_mark_text_list"
-            android:layout_marginStart="18dp"
+            android:layout_marginStart="58dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
             android:textSize="25sp"
             android:text="@string/never_mark"/>
         </LinearLayout>

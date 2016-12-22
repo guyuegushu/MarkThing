@@ -16,9 +16,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".FragmentDisActivity">
-
-        </activity>
     </application>
 
 </manifest>
