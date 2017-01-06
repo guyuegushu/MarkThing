@@ -3,6 +3,7 @@ package guyuegushu.markthing;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,7 @@ public class DBManager {
         DatabaseHelper dbHelper = new DatabaseHelper(context);
         mContext = context;
         db = dbHelper.getWritableDatabase();
+        createTable();
     }
 
     private boolean isSavedPM(CheckItem checkItem) {
@@ -53,21 +55,36 @@ public class DBManager {
         }
     }
 
+    protected boolean isSavedMain(CheckItem checkItem) {
+
+        String SQL_IS_SAVED = "SELECT MAIN_CHECKED FROM " + TABLE_NAME + " WHERE DAY = ?";
+        Cursor cursor = db.rawQuery(SQL_IS_SAVED, new String[]{checkItem.getDay()});
+        if (cursor != null && cursor.moveToFirst()) {
+            if (I2B(cursor.getInt(cursor.getColumnIndex("MAIN_CHECKED")))) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
     public void saveCheckItem(CheckItem checkItem) {
 
         if (TimeYMDH.isAorP()) {//pm
             if (!isSavedPM(checkItem)) {
                 if (!isSavedAM(checkItem)) {
-                    String SQL_SAVE_PM = "INSERT INTO " + TABLE_NAME + "(" +
-                            "DAY, MAIN_CHECKED, AM_CHECKED, AM_CHECKBOX, " +
-                            "PM_CHECKED, PM_CHECKBOX) VALUES(?,?,?,?,?,?)";
+                    String SQL_SAVE_PM = "UPDATE " + TABLE_NAME + " SET " +
+                            "MAIN_CHECKED=?, AM_CHECKED=?, AM_CHECKBOX=?, " +
+                            "PM_CHECKED=?, PM_CHECKBOX=? WHERE DAY=?";
                     Object[] args = new Object[]{
-                            checkItem.getDay(),
                             checkItem.isMain_checked(),
                             checkItem.isAm_checked(),
                             checkItem.isAm_checkBox(),
                             checkItem.isPm_checked(),
-                            checkItem.isPm_checkBox()
+                            checkItem.isPm_checkBox(),
+                            checkItem.getDay()
                     };
                     db.execSQL(SQL_SAVE_PM, args);
                 } else {
@@ -87,17 +104,17 @@ public class DBManager {
                 ToastUtil.showToast(mContext, "你已经记录过今天下午，请不要重复记录！", 0);
             }
         } else {
-            if (!isSavedAM(checkItem)){
-                String SQL_SAVE_AM = "INSERT INTO " + TABLE_NAME + "(" +
-                        "DAY, MAIN_CHECKED, AM_CHECKED, AM_CHECKBOX, " +
-                        "PM_CHECKED, PM_CHECKBOX) VALUES(?,?,?,?,?,?)";
+            if (!isSavedAM(checkItem)) {
+                String SQL_SAVE_AM = "UPDATE " + TABLE_NAME + " SET " +
+                        "MAIN_CHECKED=?, AM_CHECKED=?, AM_CHECKBOX=?, " +
+                        "PM_CHECKED=?, PM_CHECKBOX=? WHERE DAY=?";
                 Object[] args = new Object[]{
-                        checkItem.getDay(),
                         checkItem.isMain_checked(),
                         checkItem.isAm_checked(),
                         checkItem.isAm_checkBox(),
                         checkItem.isPm_checked(),
-                        checkItem.isPm_checkBox()
+                        checkItem.isPm_checkBox(),
+                        checkItem.getDay()
                 };
                 db.execSQL(SQL_SAVE_AM, args);
             } else {
@@ -111,6 +128,14 @@ public class DBManager {
             return false;
         } else {
             return true;
+        }
+    }
+
+    private int B2I(boolean i) {
+        if (i) {
+            return 1;
+        } else {
+            return 0;
         }
     }
 
@@ -140,6 +165,58 @@ public class DBManager {
             cursor.close();
         }
         return checkItemList;
+    }
+
+    private List<CheckItem> MonthList() {
+
+        List<CheckItem> checkItemList = new ArrayList<>();
+        for (int i = 1; i < 32; i++) {
+            CheckItem checkItem = new CheckItem(String.valueOf(i), false, false, false, false, false);
+            checkItemList.add(checkItem);
+        }
+        return checkItemList;
+    }
+
+    private void initTable() {
+
+        List<CheckItem> daylist = MonthList();
+        String SQL = "INSERT INTO " + TABLE_NAME + "(" +
+                "DAY, MAIN_CHECKED, AM_CHECKED, AM_CHECKBOX, " +
+                "PM_CHECKED, PM_CHECKBOX) VALUES(?,?,?,?,?,?)";
+        SQLiteStatement s = db.compileStatement(SQL);
+        db.beginTransaction();
+        for (CheckItem checkItem : daylist) {
+            s.bindLong(1, Integer.valueOf(checkItem.getDay()));
+            s.bindLong(2, B2I(checkItem.isMain_checked()));
+            s.bindLong(3, B2I(checkItem.isAm_checked()));
+            s.bindLong(4, B2I(checkItem.isAm_checkBox()));
+            s.bindLong(5, B2I(checkItem.isPm_checked()));
+            s.bindLong(6, B2I(checkItem.isPm_checkBox()));
+            s.executeInsert();
+        }
+        db.setTransactionSuccessful();
+        db.endTransaction();
+    }
+
+    private void createTable() {
+        TimeYMDH timeYMDH = new TimeYMDH();
+        if (timeYMDH.getDay() == 1 || !isCreate()) {
+            LogUtil.d("表被初始化了");
+            LogUtil.d("isCreate： " + !isCreate());
+            initTable();
+        }
+        LogUtil.d("表没有初始化");
+    }
+
+
+    private boolean isCreate() {
+        String SQL_EXIST = "SELECT DAY FROM " + TABLE_NAME + " WHERE DAY=28";
+        Cursor cursor = db.rawQuery(SQL_EXIST, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 

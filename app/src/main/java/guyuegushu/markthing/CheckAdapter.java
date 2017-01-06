@@ -77,8 +77,19 @@ public class CheckAdapter extends BaseAdapter {
         boolean pm = mdata.get(i).isPm_checked();
 
         if (am || pm) {
+            //初始化显示
+            holder.check_group_am_list.setVisibility(View.VISIBLE);
+            holder.check_group_pm_list.setVisibility(View.VISIBLE);
+            holder.never_mark_list.setVisibility(View.GONE);
 
-            if (am && pm){
+            if (am && pm) {
+                //初始化显示
+                holder.yes_pm.setVisibility(View.VISIBLE);
+                holder.no_pm.setVisibility(View.VISIBLE);
+                holder.never_mark_pm_list.setVisibility(View.GONE);
+                holder.yes_am.setVisibility(View.VISIBLE);
+                holder.no_am.setVisibility(View.VISIBLE);
+                holder.never_mark_am_list.setVisibility(View.GONE);
 
                 if (mdata.get(i).isAm_checkBox()) {
                     holder.yes_am.setChecked(true);
@@ -97,6 +108,10 @@ public class CheckAdapter extends BaseAdapter {
                 }
 
             } else if (am) {
+                //初始化显示
+                holder.yes_am.setVisibility(View.VISIBLE);
+                holder.no_am.setVisibility(View.VISIBLE);
+                holder.never_mark_am_list.setVisibility(View.GONE);
 
                 if (mdata.get(i).isAm_checkBox()) {
                     holder.yes_am.setChecked(true);
@@ -112,6 +127,11 @@ public class CheckAdapter extends BaseAdapter {
 
             } else {
 
+                //初始化显示
+                holder.yes_pm.setVisibility(View.VISIBLE);
+                holder.no_pm.setVisibility(View.VISIBLE);
+                holder.never_mark_pm_list.setVisibility(View.GONE);
+
                 if (mdata.get(i).isPm_checkBox()) {
                     holder.yes_pm.setChecked(true);
                     holder.no_pm.setEnabled(false);
@@ -125,7 +145,6 @@ public class CheckAdapter extends BaseAdapter {
                 holder.never_mark_am_list.setVisibility(View.VISIBLE);
             }
         } else {
-
             holder.check_group_am_list.setVisibility(View.GONE);
             holder.check_group_pm_list.setVisibility(View.GONE);
             holder.never_mark_list.setVisibility(View.VISIBLE);

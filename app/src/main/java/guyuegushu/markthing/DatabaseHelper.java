@@ -48,11 +48,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String SQL_CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "(" +
                 "ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "DAY TEXT, " +
-                "MAIN_CHECKED BOOLEAN DEFAULT FALSE, " +
-                "AM_CHECKED BOOLEAN DEFAULT FALSE, " +
-                "AM_CHECKBOX BOOLEAN , " +
-                "PM_CHECKED BOOLEAN DEFAULT FALSE, " +
-                "PM_CHECKBOX BOOLEAN );";
+                "MAIN_CHECKED INTEGER , " +
+                "AM_CHECKED INTEGER , " +
+                "AM_CHECKBOX INTEGER , " +
+                "PM_CHECKED INTEGER , " +
+                "PM_CHECKBOX INTEGER );";
         db.execSQL(SQL_CREATE_TABLE);
     }
 
