@@ -46,10 +46,8 @@ public class MainActivity extends Activity {
 
     private void disMonth(){
 
-        getFragmentManager().beginTransaction()
-                .remove(mF)
-                .replace(R.id.mark_main, mlF)
-                .commit();
+        Intent intent = new Intent(this, MonthList.class);
+        startActivity(intent);
     }
 
 }
