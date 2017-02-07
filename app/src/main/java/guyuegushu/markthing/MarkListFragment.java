@@ -14,14 +14,15 @@ import android.widget.TextView;
  * Created by Administrator on 2016/12/16.
  */
 
-public class MonthListFragment extends Fragment {
+public class MarkListFragment extends Fragment {
 
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-       View view = inflater.inflate(R.layout.fragment_list, container, false);
+       View view = inflater.inflate(R.layout.fragment_mark_list, container, false);
+        view.getBackground().setAlpha(150);
         init(view);
         return view;
     }

@@ -53,19 +53,19 @@ public class TimeYMDH {
     }
 
     public String getYMD() {
-        return String.valueOf(year) + "." + String.valueOf(month) + "." + String.valueOf(day);
+        return String.valueOf(year) + "年" + String.valueOf(month) + "月" + String.valueOf(day) + "日";
     }
 
     public String getYM() {
-        return String.valueOf(year) + "." + String.valueOf(month);
+        return String.valueOf(year) + "年" + String.valueOf(month) + "月";
     }
 
     public String getMD() {
-        return String.valueOf(month) + "." + String.valueOf(day);
+        return String.valueOf(month) + "月" + String.valueOf(day)  + "日";
     }
 
     public String getD() {
-        return String.valueOf(day);
+        return String.valueOf(day)  + "日";
     }
 
 }

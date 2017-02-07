@@ -2,7 +2,6 @@ package guyuegushu.markthing;
 
 import android.app.Fragment;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +15,7 @@ import android.widget.TextView;
  * Created by Administrator on 2016/12/21.
  */
 
-public class MarkFragment extends Fragment {
+public class MarkSingleFragment extends Fragment {
 
     private DBManager dbManager;
     private Context mContext;
@@ -24,7 +23,8 @@ public class MarkFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fregment_mark, container, false);
+        View view = inflater.inflate(R.layout.fregment_mark_single, container, false);
+        view.getBackground().setAlpha(150);
         init(view);
         return view;
     }
@@ -62,14 +62,14 @@ public class MarkFragment extends Fragment {
 
                 if (!checkItem.isMain_checked()) {
                     if (checkItem.isAm_checked()) {
-                        ToastUtil.showToast(mContext, "上午记录ing...", 0);
+                        ToastUtil.showToast(mContext, "上班打卡ing...", 0);
                     } else {
                         ToastUtil.showToast(mContext, "请选择之后再确定", 0);
                         return;
                     }
                 } else {
                     if (checkItem.isPm_checked()) {
-                        ToastUtil.showToast(mContext, "下午记录ing...", 0);
+                        ToastUtil.showToast(mContext, "下班打卡ing...", 0);
 
                     } else {
                         ToastUtil.showToast(mContext, "请选择之后再确定", 0);

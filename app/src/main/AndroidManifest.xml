@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MonthList"> </activity>
+        <activity android:name=".MonthListActivity"> </activity>
 
     </application>
 

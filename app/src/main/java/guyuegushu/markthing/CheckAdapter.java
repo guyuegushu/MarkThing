@@ -51,7 +51,7 @@ public class CheckAdapter extends BaseAdapter {
         Holder holder = null;
         if (view == null) {
             holder = new Holder();
-            view = mLayoutInflater.inflate(R.layout.list_item_fragment_list, null);
+            view = mLayoutInflater.inflate(R.layout.fragment_mark_list_item, null);
             holder.day = (TextView) view.findViewById(R.id.day_list);
 
             holder.never_mark_pm_list = (TextView) view.findViewById(R.id.never_mark_pm_list);
