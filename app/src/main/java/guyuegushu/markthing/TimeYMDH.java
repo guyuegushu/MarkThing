@@ -12,6 +12,7 @@ public class TimeYMDH {
     private int month = 0;
     private int day = 0;
     private int hour = 0;
+    private Calendar c;
 
     public int getYear() {
         return year;
@@ -40,7 +41,7 @@ public class TimeYMDH {
     }
 
     public TimeYMDH() {
-        Calendar c = Calendar.getInstance();
+        c = Calendar.getInstance();
         year = c.get(Calendar.YEAR);
         month = 1 + c.get(Calendar.MONTH);
         hour = c.get(Calendar.HOUR_OF_DAY);
@@ -48,7 +49,7 @@ public class TimeYMDH {
 
     }
 
-    public int getH(){
+    public int getH() {
         return hour;
     }
 
@@ -61,11 +62,22 @@ public class TimeYMDH {
     }
 
     public String getMD() {
-        return String.valueOf(month) + "月" + String.valueOf(day)  + "日";
+        return String.valueOf(month) + "月" + String.valueOf(day) + "日";
     }
 
     public String getD() {
-        return String.valueOf(day)  + "日";
+        return String.valueOf(day) + "日";
+    }
+
+    public int lengthOfMonth() {
+
+        int length = 0;
+
+        c.set(Calendar.DATE, 1);
+        c.roll(Calendar.DATE, -1);
+        length = c.get(Calendar.DATE);
+
+        return length;
     }
 
 }

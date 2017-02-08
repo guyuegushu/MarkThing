@@ -155,8 +155,11 @@ public class DBManager {
 
     private List<CheckItem> MonthList() {
 
+        TimeYMDH timeYMDH = new TimeYMDH();
+        int length = timeYMDH.lengthOfMonth();
+
         List<CheckItem> checkItemList = new ArrayList<>();
-        for (int i = 1; i < 32; i++) {
+        for (int i = 1; i < length + 1; i++) {
             CheckItem checkItem = new CheckItem(String.valueOf(i) + "日", false, false, false, false, false);
             checkItemList.add(checkItem);
         }
@@ -193,12 +196,12 @@ public class DBManager {
         }
     }
 
-
     private boolean isCreate() {
         String SQL_EXIST = "SELECT DAY FROM " + TABLE_NAME + " WHERE DAY=?";
         String[] args = new String[]{"28日"};
         Cursor cursor = db.rawQuery(SQL_EXIST, args);
         if (cursor != null && cursor.moveToFirst()) {
+            cursor.close();
             return true;
         } else {
             return false;

@@ -27,24 +27,29 @@ public class MainActivity extends Activity implements OnClickCallBackListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawlayout_main);
-        homepage();
+
+        getFragmentManager().beginTransaction()
+                .add(R.id.content_frame, hpF)
+                .commit();
+
         setMenuList();
     }
 
     private HomepageFragment hpF = new HomepageFragment();
-    private void homepage(){
 
-        FragmentManager fragmentManager = getFragmentManager();
+    FragmentManager fragmentManager = getFragmentManager();
+
+    private void homepage() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction
-                .remove(mlF)
-                .remove(mF)
                 .replace(R.id.content_frame, hpF)
+                .addToBackStack(null)
                 .commit();
     }
 
     ListView menuList;
-    private void setMenuList(){
+
+    private void setMenuList() {
         layout = (DrawerLayout) findViewById(R.id.root_layout);
         menus = new ArrayList<>();
         menus.add("主页");
@@ -61,7 +66,7 @@ public class MainActivity extends Activity implements OnClickCallBackListener {
 
     @Override
     public void OnClick(int position) {
-        switch (menus.get(position)){
+        switch (menus.get(position)) {
             case "主页":
                 homepage();
                 layout.closeDrawer(menuList);
@@ -78,7 +83,7 @@ public class MainActivity extends Activity implements OnClickCallBackListener {
         }
     }
 
-    class MenuAdapter extends BaseAdapter{
+    class MenuAdapter extends BaseAdapter {
 
         @Override
         public int getCount() {
@@ -115,9 +120,7 @@ public class MainActivity extends Activity implements OnClickCallBackListener {
         }
     }
 
-    private void markSingle(){
-
-        FragmentManager fragmentManager = getFragmentManager();
+    private void markSingle() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction
                 .replace(R.id.content_frame, mF)
@@ -125,7 +128,7 @@ public class MainActivity extends Activity implements OnClickCallBackListener {
                 .commit();
     }
 
-    private void markList(){
+    private void markList() {
 
         getFragmentManager().beginTransaction()
                 .replace(R.id.content_frame, mlF)

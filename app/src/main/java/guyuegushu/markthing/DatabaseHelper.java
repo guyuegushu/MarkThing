@@ -18,12 +18,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     private DatabaseHelper(Context context, String name,
-                          SQLiteDatabase.CursorFactory factory, int version) {
+                           SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
         this.mContext = context;
     }
 
-    public DatabaseHelper(Context context){
+    public DatabaseHelper(Context context) {
 
         this(context, DATABASE_NAME, null, VERSION);
         mContext = context;
@@ -39,12 +39,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
-        for (int version = i + 1; version <= i1; version++){
+        for (int version = i + 1; version <= i1; version++) {
             updateDb(sqLiteDatabase, version);
         }
     }
 
-    private void createTable(SQLiteDatabase db){
+    private void createTable(SQLiteDatabase db) {
         String SQL_CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "(" +
                 "ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "DAY TEXT, " +
@@ -56,10 +56,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_TABLE);
     }
 
-    private void updateDb(SQLiteDatabase db, int version){
+    private void updateDb(SQLiteDatabase db, int version) {
 
-        switch (version){
-            case 1:createTable(db);
+        switch (version) {
+            case 1:
+                createTable(db);
                 break;
             default:
                 break;

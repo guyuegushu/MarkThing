@@ -6,10 +6,10 @@ package guyuegushu.markthing;
 
 public class CheckItem {
     private String day = "";
-    private boolean main_checked = false ;
-    private boolean am_checkBox = false ;
+    private boolean main_checked = false;
+    private boolean am_checkBox = false;
     private boolean am_checked = false;
-    private boolean pm_checkBox = false ;
+    private boolean pm_checkBox = false;
     private boolean pm_checked = false;
 
     public CheckItem() {

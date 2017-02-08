@@ -6,20 +6,20 @@
 
     <TextView
         android:id="@+id/day_list"
-        android:layout_marginTop="5dp"
         android:layout_width="50dp"
         android:layout_height="25dp"
         android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
         android:hint="1日"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <RadioGroup
         android:id="@+id/check_group_am_list"
-        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:layout_gravity="center"
+        android:layout_marginTop="5dp"
         android:layout_toEndOf="@id/day_list"
         android:orientation="horizontal">
 
@@ -46,20 +46,20 @@
 
         <TextView
             android:id="@+id/never_mark_am_list"
-            android:visibility="gone"
-            android:layout_marginStart="20dp"
             android:layout_width="100dp"
             android:layout_height="20dp"
-            android:text="@string/never_mark"/>
+            android:layout_marginStart="20dp"
+            android:text="@string/never_mark"
+            android:visibility="gone" />
     </RadioGroup>
 
     <RadioGroup
         android:id="@+id/check_group_pm_list"
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:layout_gravity="center"
-        android:layout_below="@id/check_group_am_list"
         android:layout_alignStart="@id/check_group_am_list"
+        android:layout_below="@id/check_group_am_list"
+        android:layout_gravity="center"
         android:orientation="horizontal">
 
         <TextView
@@ -85,32 +85,31 @@
 
         <TextView
             android:id="@+id/never_mark_pm_list"
-            android:visibility="gone"
-            android:layout_marginStart="20dp"
             android:layout_width="100dp"
             android:layout_height="20dp"
-            android:text="@string/never_mark"/>
+            android:layout_marginStart="20dp"
+            android:text="@string/never_mark"
+            android:visibility="gone" />
     </RadioGroup>
 
     <LinearLayout
-        android:layout_toEndOf="@id/day_list"
-        android:layout_marginTop="7dp"
-        android:visibility="gone"
         android:id="@+id/never_mark_list"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
+        android:layout_marginTop="7dp"
+        android:layout_toEndOf="@id/day_list"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/never_mark_text_list"
-            android:layout_marginStart="58dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="@string/never_mark"/>
-        </LinearLayout>
-
+            android:layout_marginStart="58dp"
+            android:text="@string/never_mark"
+            android:textSize="18sp" />
+    </LinearLayout>
 
 
 </RelativeLayout>
