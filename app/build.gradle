@@ -28,8 +28,8 @@ android {
         applicationId "guyuegushu.markthing"
         minSdkVersion 21
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode gitVersionCode()
+        versionName gitVersionTag()
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
