@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/am_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/am"
+            android:textSize="15sp" />
+
+        <RadioButton
+            android:id="@+id/yes_am"
+            android:layout_marginStart="15dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/yes" />
+
+        <RadioButton
+            android:id="@+id/no_am"
+            android:layout_marginStart="20dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/no" />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/pm_group"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pm"
+            android:textSize="15sp" />
+
+        <RadioButton
+            android:id="@+id/yes_pm"
+            android:layout_marginStart="15dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/yes" />
+
+        <RadioButton
+            android:id="@+id/no_pm"
+            android:layout_marginStart="20dp"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:text="@string/no" />
+
+    </RadioGroup>
+
+    <RelativeLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <Button
+        android:id="@+id/dialog_no"
+        android:text="@string/dialog_no"
+        android:background="#fff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/dialog_yes"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/dialog_no"
+            android:text="@string/dialog_yes"
+            android:background="#fff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

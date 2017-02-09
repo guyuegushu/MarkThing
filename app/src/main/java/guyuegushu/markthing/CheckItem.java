@@ -15,6 +15,12 @@ public class CheckItem {
     public CheckItem() {
     }
 
+    public CheckItem(boolean main_checked, boolean am_checked, boolean pm_checked) {
+        this.main_checked = main_checked;
+        this.am_checked = am_checked;
+        this.pm_checked = pm_checked;
+    }
+
     public CheckItem(String day, boolean main_checked, boolean am_checkBox, boolean am_checked, boolean pm_checkBox, boolean pm_checked) {
         this.day = day;
         this.main_checked = main_checked;

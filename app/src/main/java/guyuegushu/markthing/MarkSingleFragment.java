@@ -24,7 +24,6 @@ public class MarkSingleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fregment_mark_single, container, false);
-        LogUtil.e("in this fragment");
         view.getBackground().setAlpha(150);
         init(view);
         return view;

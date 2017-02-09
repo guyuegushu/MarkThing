@@ -10,4 +10,6 @@
     <string name="never_mark">还没有记录,&#8230;</string>
     <string name="main_text">总有时光你可以掌握，即便年华似水&#8230;</string>
     <string name="app_name">打卡记录</string>
+    <string name="dialog_yes">确定</string>
+    <string name="dialog_no">取消</string>
 </resources>

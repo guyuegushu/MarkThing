@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -150,6 +151,18 @@ public class CheckAdapter extends BaseAdapter {
             holder.never_mark_list.setVisibility(View.VISIBLE);
 
         }
+
+//        RadioGroup am_group = (RadioGroup) view.findViewById(R.id.am_group);
+//        RadioGroup pm_group = (RadioGroup) view.findViewById(R.id.pm_group);
+//
+//        am_group.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//
+//                return true;
+//            }
+//        });
+
         return view;
     }
 
@@ -169,4 +182,22 @@ public class CheckAdapter extends BaseAdapter {
         private RadioButton yes_pm;
         private RadioButton no_pm;
     }
+
+    public void updateItem(int position, ListView mList) {
+
+        /**第一个可见的位置**/
+        int firstVisiblePosition = mList.getFirstVisiblePosition();
+        /**最后一个可见的位置**/
+        int lastVisiblePosition = mList.getLastVisiblePosition();
+
+        /**在看见范围内才更新，不可见的滑动后自动会调用getView方法更新**/
+        if (position >= firstVisiblePosition && position <= lastVisiblePosition) {
+            /**获取指定位置view对象**/
+            View view = mList.getChildAt(position - firstVisiblePosition);
+            getView(position, view, mList);
+            LogUtil.e("刷新" + position);
+        }
+
+    }
+
 }
